@@ -24,18 +24,20 @@ const Player = () => {
   }), []);
 
   useEffect(() => {
-
     fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
       .then(res => res.json())
-      .then(res => setApiData(res.results[0]))
+      .then(res => {
+        if (res.results && res.results.length > 0) setApiData(res.results[0]);
+        else setApiData({});
+      })
       .catch(err => console.error(err));
-  }, [id, options])
+  }, [id, options]);
 
 
 
   return (
     <div className='player'>
-      <img src={back_arrow_icon} alt="" onClick={() => { navigate(-2) }} />
+      <img src={back_arrow_icon} alt="" onClick={() => { navigate(-1) }} />
       <iframe
         width="90%"
         height="90%"
