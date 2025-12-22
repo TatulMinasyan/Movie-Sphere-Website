@@ -1,5 +1,6 @@
 {
   "name": "movie-sphere-website",
+  "homepage": "https://TatulMinasyan.github.io/Movie-Sphere-Website",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
