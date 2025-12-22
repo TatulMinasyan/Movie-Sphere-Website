@@ -28,7 +28,7 @@ const Player = () => {
     .then(res => res.json())
     .then(res => setApiData(res.results[0]))
     .catch(err => console.error(err));
-  },[])
+  },[id,options])
 
   
 

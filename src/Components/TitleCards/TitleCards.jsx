@@ -23,21 +23,20 @@ const TitleCards = ({ title, category }) => {
   }
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${category?category:"now_playing"}?language=en-US&page=1`, options)
+    fetch(`https://api.themoviedb.org/3/movie/${category ? category : "now_playing"}?language=en-US&page=1`, options)
       .then(res => res.json())
       .then(res => setApiData(res.results || []))
       .catch(err => console.error(err))
 
-    if (cardsRef.current) {
-      cardsRef.current.addEventListener('wheel', handleWheel, { passive: false })
-    }
+    const cards = cardsRef.current;
+    if (!cards) return;
+
+    cards.addEventListener("wheel", handleWheel);
 
     return () => {
-      if (cardsRef.current) {
-        cardsRef.current.removeEventListener('wheel', handleWheel)
-      }
-    }
-  }, [])
+      cards.removeEventListener("wheel", handleWheel);
+    };
+  }, [category, options])
 
   return (
     <div className='title-cards'>
