@@ -30,8 +30,8 @@ export function App() {
       <ToastContainer theme='dark' />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/Movie-Sphere-Website/login' element={<Login />} />
-        <Route path='/Movie-Sphere-Website/player/:id' element={<Player />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/player/:id' element={<Player />} />
       </Routes>
 
     </div>
