@@ -15,17 +15,15 @@ const Player = () => {
     typeof: ""
   })
 
-
+  const options = useMemo(() => ({
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MGIwODQxNDFhMTU0NzEyMzE5NTY3YTFlM2ZkMjIyMSIsIm5iZiI6MTc1NDg0MzI3OS4yMzIsInN1YiI6IjY4OThjODhmNjc5MTg3MmUxYTZkNmEwZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0w-GhiBNGI4PqxYCi_kBSE4ZVArgZ2zM6Xp-PilmsfA'
+    }
+  }), []);
 
   useEffect(() => {
-
-    const options = useMemo(() => ({
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MGIwODQxNDFhMTU0NzEyMzE5NTY3YTFlM2ZkMjIyMSIsIm5iZiI6MTc1NDg0MzI3OS4yMzIsInN1YiI6IjY4OThjODhmNjc5MTg3MmUxYTZkNmEwZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0w-GhiBNGI4PqxYCi_kBSE4ZVArgZ2zM6Xp-PilmsfA'
-      }
-    }), []);
 
     fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
       .then(res => res.json())
