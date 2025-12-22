@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import './TitleCards.css'
 import { Link } from 'react-router-dom'
 
@@ -18,13 +18,13 @@ const TitleCards = ({ title, category }) => {
 
   useEffect(() => {
 
-    const options = {
+    const options = useMemo(() => ({
       method: 'GET',
       headers: {
         accept: 'application/json',
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MGIwODQxNDFhMTU0NzEyMzE5NTY3YTFlM2ZkMjIyMSIsIm5iZiI6MTc1NDg0MzI3OS4yMzIsInN1YiI6IjY4OThjODhmNjc5MTg3MmUxYTZkNmEwZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0w-GhiBNGI4PqxYCi_kBSE4ZVArgZ2zM6Xp-PilmsfA'
       }
-    };
+    }), [])
 
     fetch(`https://api.themoviedb.org/3/movie/${category ? category : "now_playing"}?language=en-US&page=1`, options)
       .then(res => res.json())
@@ -39,7 +39,7 @@ const TitleCards = ({ title, category }) => {
     return () => {
       cards.removeEventListener("wheel", handleWheel);
     };
-  }, [])
+  }, [category,options])
 
   return (
     <div className='title-cards'>
