@@ -3,9 +3,6 @@ import Home from './Pages/Home/Home'
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Login from './Pages/Login/Login'
 import Player from './Pages/Player/Player';
-import { onAuthStateChanged } from 'firebase/auth';
-import { useEffect } from 'react';
-import { auth } from './firebase';
 import { ToastContainer } from 'react-toastify';
 
 
