@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Movie-Sphere-Website/static/css/main.909289a1.css",
-    "main.js": "/Movie-Sphere-Website/static/js/main.c2b74ded.js",
+    "main.js": "/Movie-Sphere-Website/static/js/main.534d2314.js",
     "static/media/hero_banner.jpg": "/Movie-Sphere-Website/static/media/hero_banner.83badbd673866f1cf0ec.jpg",
     "static/media/moviesphere_spinner.gif": "/Movie-Sphere-Website/static/media/moviesphere_spinner.7517415e575521b3249f.gif",
     "static/media/background_banner.jpg": "/Movie-Sphere-Website/static/media/background_banner.303a83aff58191b99963.jpg",
@@ -13,10 +13,10 @@
     "static/media/search_icon.svg": "/Movie-Sphere-Website/static/media/search_icon.59429cd0003678c5368450ea61101e56.svg",
     "static/media/caret_icon.svg": "/Movie-Sphere-Website/static/media/caret_icon.0d0a268cfa90dc1d8acf717a337a30cf.svg",
     "main.909289a1.css.map": "/Movie-Sphere-Website/static/css/main.909289a1.css.map",
-    "main.c2b74ded.js.map": "/Movie-Sphere-Website/static/js/main.c2b74ded.js.map"
+    "main.534d2314.js.map": "/Movie-Sphere-Website/static/js/main.534d2314.js.map"
   },
   "entrypoints": [
     "static/css/main.909289a1.css",
-    "static/js/main.c2b74ded.js"
+    "static/js/main.534d2314.js"
   ]
 }
