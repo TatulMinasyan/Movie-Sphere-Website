@@ -1,6 +1,6 @@
 import './App.css';
 import Home from './Pages/Home/Home'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Login from './Pages/Login/Login'
 import Player from './Pages/Player/Player';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -8,26 +8,30 @@ import { useEffect } from 'react';
 import { auth } from './firebase';
 import { ToastContainer } from 'react-toastify';
 
+export default function App() { 
 
-export function App() {
+  const navigate = useNavigate();
+  const location = useLocation(); 
 
   useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, (user) => {
-    if (user) {
-      console.log("Logged In");
-      if (window.location.pathname === '/login') {
-        navigate('/');
-      }
-    } else {
-      console.log("Logged Out");
-      if (window.location.pathname !== '/login') {
-        navigate('/login');
-      }
-    }
-  });
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      const isLoginPage = location.pathname.includes('/login');
 
-  return () => unsubscribe();
-}, [navigate]);
+      if (user) {
+        console.log("Logged In");
+        if (isLoginPage) {
+          navigate('/');
+        }
+      } else {
+        console.log("Logged Out");
+        if (!isLoginPage) {
+          navigate('/login');
+        }
+      }
+    });
+
+    return () => unsubscribe();
+  }, [navigate, location.pathname]);
 
   return (
     <div className="App">
@@ -40,5 +44,3 @@ export function App() {
     </div>
   );
 }
-
-
