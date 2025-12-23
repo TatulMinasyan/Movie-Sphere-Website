@@ -7,6 +7,25 @@ import { ToastContainer } from 'react-toastify';
 
 
 export function App() {
+
+  useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log("Logged In");
+      if (window.location.pathname === '/login') {
+        navigate('/');
+      }
+    } else {
+      console.log("Logged Out");
+      if (window.location.pathname !== '/login') {
+        navigate('/login');
+      }
+    }
+  });
+
+  return () => unsubscribe();
+}, [navigate]);
+
   return (
     <div className="App">
       <ToastContainer theme='dark' />
