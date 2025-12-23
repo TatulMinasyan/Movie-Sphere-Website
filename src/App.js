@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import { auth } from './firebase';
 import { ToastContainer } from 'react-toastify';
 
-export default function App() { 
+export function App() { 
 
   const navigate = useNavigate();
   const location = useLocation(); 
